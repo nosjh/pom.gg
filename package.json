@@ -1,8 +1,8 @@
 {
-  "name": "pog.gg",
+  "name": "pom.gg",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://nosjh.github.io/pog.gg/",
+  "homepage": "http://nosjh.github.io/pom.gg/",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@testing-library/jest-dom": "^5.16.4",

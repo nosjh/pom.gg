@@ -1,41 +1,36 @@
 import React from "react";
 import "../../styles/ScheduleList.scss";
 
-function ScheduleList({ schedule }) {
-  const { Day, TeamAKey, TeamBKey, TeamAScore, TeamBScore } = schedule;
+function ScheduleList({ match }) {
+  const { name, begin_at, status, opponents } = match;
 
-  const setDay = (dayVal) => {
-    const matchDay = new Date(dayVal);
-    const year = matchDay.getFullYear();
-    const month = matchDay.getMonth() + 1;
-    const day = matchDay.getDate();
-    const dateString = year + "년 " + month + "월 " + day + "일";
+  const teamA = opponents[0]?.opponent;
+  const teamB = opponents[1]?.opponent;
 
-    return dateString;
-  };
+  const dateStr = begin_at
+    ? new Date(begin_at).toLocaleDateString("ko-KR", {
+        year: "numeric", month: "long", day: "numeric",
+      })
+    : "";
 
   return (
     <div className="info-schedule">
-      <div className="date Pretendard-Regular font-14">
-        {Day && setDay(Day)}
-      </div>
+      <div className="date Pretendard-Regular font-14">{dateStr}</div>
       <div className="info-match Poppins-Medium font-14">
         <div className="teamA">
-          <div className="NameA">{TeamAKey}</div>
+          <div className="NameA">{teamA?.acronym}</div>
           <div className="logoA">
-            <img src={`img/team_logo/${TeamAKey}.png`} alt="team logo" />
+            <img src={teamA?.image_url} alt="team logo" />
           </div>
         </div>
         <div className="score">
-          <div className="scoreA font-18">{TeamAScore}</div>
-          <div className="vs">vs</div>
-          <div className="scoreB font-18">{TeamBScore}</div>
+          <div className="vs">{status === "finished" ? "종료" : "VS"}</div>
         </div>
         <div className="teamB">
           <div className="logoB">
-            <img src={`img/team_logo/${TeamBKey}.png`} alt="team logo" />
+            <img src={teamB?.image_url} alt="team logo" />
           </div>
-          <div className="NameB">{TeamBKey}</div>
+          <div className="NameB">{teamB?.acronym}</div>
         </div>
       </div>
     </div>

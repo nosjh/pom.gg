@@ -14,12 +14,9 @@ function Schedules() {
   return (
     <div className="schedul-container">
       <div>
-        {schedules.map((schedule, idx) => {
-          if (idx % 2 !== 0) {
-            schedule.Day = "";
-          }
-          return <ScheduleList key={idx} schedule={schedule} />;
-        })}
+        {matches.map((match, idx) => (
+  <ScheduleList key={match.id} match={match} />
+))}
       </div>
     </div>
   );
