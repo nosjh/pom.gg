@@ -22,7 +22,7 @@ function RosterT1Container({ teamId }) {
       </div>
       <div>
         {rostersT1.map((rosterT1) => {
-          return <RosterT1 key={rosterT1.PlayerId} roster={rosterT1} />;
+          return <RosterT1 key={rosterT1.id} roster={rosterT1} />;
         })}
       </div>
     </div>

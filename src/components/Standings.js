@@ -6,8 +6,8 @@ import * as api from "../lib/api";
 function Standings() {
   const [standings, setStandings] = useState([]);
   useEffect(() => {
-    api.Standings().then(function (response) {
-      setStandings(response);
+    api.Standings().then((data) => {
+      setStandings(data);
     });
   }, []);
 
@@ -22,7 +22,7 @@ function Standings() {
       </div>
       <div>
         {standings.map((standing) => (
-          <StandingList key={standing.TeamId} standing={standing} />
+          <StandingList key={standing.team.id} standing={standing} />
         ))}
       </div>
     </div>

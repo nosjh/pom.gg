@@ -4,17 +4,18 @@ import ScheduleList from "./ScheduleList/ScheduleList";
 import "../styles/Schedules.scss";
 
 function Schedules() {
-  const [schedules, setSchedules] = useState([]);
+  const [matches, setMatches] = useState([]);
+
   useEffect(() => {
-    api.Schedules().then(function (response) {
-      setSchedules(response);
+    api.Schedules().then((data) => {
+      setMatches(data);
     });
   }, []);
 
   return (
     <div className="schedul-container">
       <div>
-        {matches.map((match, idx) => (
+        {matches.map((match) => (
   <ScheduleList key={match.id} match={match} />
 ))}
       </div>

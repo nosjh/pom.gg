@@ -1,53 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/Rosters.scss";
 import RosterT1Container from "../containers/RosterT1Container";
-
-const teams = [
-  {
-    Key: "T1",
-    TeamId: "100000231",
-  },
-  {
-    Key: "GEN",
-    TeamId: "100000064",
-  },
-  {
-    Key: "DK",
-    TeamId: "100000154",
-  },
-  {
-    Key: "KDF",
-    TeamId: "100000001",
-  },
-  {
-    Key: "DRX",
-    TeamId: "100000230",
-  },
-  {
-    Key: "BRO",
-    TeamId: "100000435",
-  },
-  {
-    Key: "KT",
-    TeamId: "100000005",
-  },
-  {
-    Key: "NS",
-    TeamId: "100000436",
-  },
-  {
-    Key: "LSB",
-    TeamId: "100000155",
-  },
-  {
-    Key: "HLE",
-    TeamId: "100000066",
-  },
-];
+import * as api from "../lib/api";
 
 function Rosters() {
-  const [teamId, setTeamId] = useState("100000231");
+  const [teams, setTeams] = useState([]);
+  const [teamId, setTeamId] = useState(null);
   const [style, setStyle] = useState("optionList");
+  
+  useEffect(() => {
+    api.Teams().then((data) => {
+      setTeams(data);
+      if (data.length > 0) setTeamId(data[0].id);
+    });
+  }, []);
 
   const changeStyle = () => {
     style === "optionList"
@@ -72,20 +38,20 @@ function Rosters() {
           {teams.map((team) => (
             <li
               className="optionItem"
-              key={team.Key}
+              key={team.id}
               onClick={() => {
-                handleClick(team.TeamId);
+                handleClick(team.id);
               }}
             >
-              <img src={`img/team_logo/${team.TeamId}.png`} alt="team logo" />
-              {team.Key}
+              <img src={team.image_url} alt={team.name} />
+              {team.acronym}
             </li>
           ))}
         </ul>
       </div>
       {/* 선수 정보 */}
       <div>
-        <RosterT1Container className="rosters" teamId={teamId} />
+        {teamId && <RosterT1Container className="rosters" teamId={teamId} />}
       </div>
     </div>
   );
