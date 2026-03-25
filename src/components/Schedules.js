@@ -17,7 +17,7 @@ function Schedules() {
           <ScheduleList
     key={match.id}
     match={match}
-    showDate={idx % 2 === 0}
+    showDate={idx % 2 !== 0}
   />
         ))}
       </div>

@@ -21,7 +21,7 @@ function ScheduleList({ match, showDate }) {
   return (
     <div>
       {showDate && (
-        <div className="date Pretendard-Regular font-14">{dateStr}</div>
+        <div className="date Pretendard-Regular font-14">{showDate ? dateStr : ""}</div>
       )}
       <div className="info-schedule">
         <div className="info-match Poppins-Medium font-14">
