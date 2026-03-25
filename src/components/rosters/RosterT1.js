@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Player.scss";
 
-function RosterT1({ player }) {
+function RosterT1({ Roster }) {
   const { name, role, image_url, nationality, birthday } = player;
 
   const birth = birthday
