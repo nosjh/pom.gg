@@ -1,7 +1,7 @@
 import axiosInstance from "./axiosInstance";
 
 const SERIE_ID = 9164;        // 시즌 전체 — 일정, 팀목록, 선수
-const TOURNAMENT_ID = 16306;  // 정규시즌 토너먼트 — 순위만
+// const TOURNAMENT_ID = 16306;  // 정규시즌 토너먼트 — 순위만
 
 
 export const Standings = async () => {
