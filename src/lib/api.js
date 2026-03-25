@@ -1,7 +1,7 @@
 import axiosInstance from "./axiosInstance";
 
-const SERIE_ID = 9164;        // 시즌 전체 — 일정, 팀목록, 선수
-// const TOURNAMENT_ID = 16306;  // 정규시즌 토너먼트 — 순위만
+// const SERIE_ID = 9164;        // 시즌 전체 
+const TOURNAMENT_ID = 16306;  // 정규시즌 
 
 
 export const Standings = async () => {
@@ -11,7 +11,7 @@ export const Standings = async () => {
 
 export const Schedules = async () => {
   const response = await axiosInstance.get("/api/matches", {
-    params: { "filter[serie_id]": SERIE_ID, sort: "-begin_at", per_page: 100 }
+    params: { "filter[tournament_id]": TOURNAMENT_ID, sort: "-begin_at", per_page: 100 }
   });
   return response.data || [];
 };

@@ -24,7 +24,7 @@ function ScheduleList({ match }) {
           </div>
         </div>
         <div className="score">
-          <div className="vs">{status === "finished" ? "종료" : "VS"}</div>
+          <div className="vs">VS</div>
         </div>
         <div className="teamB">
           <div className="logoB">
