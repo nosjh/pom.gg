@@ -11,7 +11,10 @@ export const Standings = async () => {
 
 export const Schedules = async () => {
   const response = await axiosInstance.get("/api/matches", {
-    params: { "filter[tournament_id]": TOURNAMENT_ID, sort: "-begin_at", per_page: 100 }
+    params: { "filter[tournament_id]": TOURNAMENT_ID,
+              "filter[status]": "finished", 
+              sort: "-begin_at", 
+              per_page: 100 }
   });
   return response.data || [];
 };
