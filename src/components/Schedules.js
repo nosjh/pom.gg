@@ -15,10 +15,10 @@ function Schedules() {
       <div>
         {matches.map((match, idx) => (
           <ScheduleList
-            key={match.id}
-            match={match}
-            showDate={idx % 2 === 0} 
-          />
+    key={match.id}
+    match={match}
+    showDate={idx % 2 === 0}
+  />
         ))}
       </div>
     </div>
