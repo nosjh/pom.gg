@@ -10,27 +10,18 @@ function Schedules() {
     api.Schedules().then((data) => setMatches(data));
   }, []);
 
-  let lastDate = null;
-
   return (
     <div className="schedul-container">
       <div>
-        {matches.map((match) => {
-          const dateStr = match.begin_at
-            ? new Date(match.begin_at).toLocaleDateString("ko-KR", {
-                year: "numeric", month: "long", day: "numeric",
-              })
-            : "";
-          const showDate = dateStr !== lastDate;
-          lastDate = dateStr;
-
-          return (
-            <ScheduleList key={match.id} match={match} showDate={showDate} />
-          );
-        })}
+        {matches.map((match, idx) => (
+          <ScheduleList
+            key={match.id}
+            match={match}
+            showDate={idx % 2 === 0} 
+          />
+        ))}
       </div>
     </div>
   );
 }
-
 export default Schedules;
