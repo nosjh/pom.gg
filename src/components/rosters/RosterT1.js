@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/Player.scss";
 
 function RosterT1({ player }) {
-  const { id, name, role, image_url, nationality, birthday } = player;
+  const { name, role, image_url, nationality, birthday } = player;
 
   const birth = birthday
     ? birthday.slice(0, 10)

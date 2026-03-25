@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/ScheduleList.scss";
 
 function ScheduleList({ match }) {
-  const { name, begin_at, status, opponents } = match;
+  const { begin_at, status, opponents } = match;
 
   const teamA = opponents[0]?.opponent;
   const teamB = opponents[1]?.opponent;
