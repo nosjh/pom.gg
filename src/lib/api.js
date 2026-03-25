@@ -20,11 +20,13 @@ export const Teams = async () => {
   const response = await axiosInstance.get("/api/teams");
   return response.data || [];
 };
+
 export const RostersT1 = async (teamId) => {
   try {
-    const response = await axiosInstance.get(
-      `/lol/teams/${teamId}/players`
-    );
+    const response = await axiosInstance.get("/api/players", {
+      params: { teamId }
+    });
     return response.data || [];
-  } catch (e) {return[];}
+  } catch (e) { return []; }
 };
+
