@@ -48,9 +48,6 @@ function Main() {
           <div className="select-league Poppins-SemiBold font-32">
             LCK
           </div>
-          <div className="select-league-icon">
-            <BsCaretDownFill />
-          </div>
         </div>
         <p className="legaue-name Poppins-Medium font-14">
           League of Legends Champions Korea
@@ -58,7 +55,7 @@ function Main() {
         <div className="select-season-wrap">
           <select className="select-season Poppins-Medium font-14">
             <optgroup>
-              <option>2022 Spring</option>
+              <option>2026 1-2Round</option>
             </optgroup>
           </select>
           <div className="select-season-icon">

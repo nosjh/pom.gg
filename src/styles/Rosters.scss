@@ -88,11 +88,13 @@
 .optionItem > img {
   margin: 0 auto;
   width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .label > img {
   margin: 0 auto;
-  width: 32px;
+  width: 36px;
 }
 
 .label.active {

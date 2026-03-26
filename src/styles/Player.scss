@@ -18,7 +18,10 @@
 }
 
 .info-player-detail > .player > img {
-  height: 58px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .position {
@@ -79,11 +82,12 @@
 }
 
 .nation {
-  margin-left: 60px;
+  // margin-left: 60px;
+  text-align: center;
   width: 140px;
   @include mobile {
     width: 98px;
-    margin-left: 16px;
+    // margin-left: 16px;
   }
 }
 
