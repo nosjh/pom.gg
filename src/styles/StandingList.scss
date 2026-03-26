@@ -15,9 +15,6 @@
   width: 30px;
   height: 30px;
   object-fit: contain;
-  display: flex;
-  align-items: center;      
-  justify-content: center;
 }
 
 .info-team div:nth-child(1) {
@@ -30,6 +27,9 @@
 }
 
 .info-team div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: 15px;
   @include mobile {
     margin-left: 10px;

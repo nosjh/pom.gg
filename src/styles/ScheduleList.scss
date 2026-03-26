@@ -51,16 +51,19 @@
   width: 32px;
   height: 32px;
   object-fit: contain;
-  display: flex;
-  align-items: center;      
-  justify-content: center;
 }
 
 .logoA {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-right: 12px;
 }
 
 .logoB {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-left: 12px;
 }
 
