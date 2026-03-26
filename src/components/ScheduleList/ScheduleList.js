@@ -14,8 +14,8 @@ function ScheduleList({ match, showDate, dateStr }) {
   return (
     <div>
       {showDate && (
-        <div className="date Pretendard-Regular font-14">{dateStr}</div>
-      )}
+      <div className="date Pretendard-Regular font-14">{dateStr}</div>
+    )}
       <div className="info-schedule">
         <div className="info-match Poppins-Medium font-14">
           <div className="teamA">
