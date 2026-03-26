@@ -1,8 +1,15 @@
 import React from "react";
 import "../../styles/ScheduleList.scss";
 
-function ScheduleList({ match, showDate }) {
-  const { begin_at, opponents, results } = match;
+function ScheduleList({ match, showDate, dateStr }) {
+  const { opponents, results } = match;
+
+  const teamA = opponents?.[0]?.opponent;
+  const teamB = opponents?.[1]?.opponent;
+
+  const scoreA = results?.find(r => r.team_id === teamA?.id)?.score ?? null;
+  const scoreB = results?.find(r => r.team_id === teamB?.id)?.score ?? null;
+  const hasScore = scoreA !== null && scoreB !== null;
 
   return (
     <div>
