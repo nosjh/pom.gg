@@ -6,10 +6,6 @@ import "../styles/Schedules.scss";
 function Schedules() {
   const [matches, setMatches] = useState([]);
 
-  useEffect(() => {
-    api.Schedules().then((data) => setMatches(data));
-  }, []);
-
   // UTC → 한국 시간(+9) 변환 후 날짜 키 추출
   const getDateKey = (begin_at) => {
     if (!begin_at) return "";
@@ -17,6 +13,18 @@ function Schedules() {
     date.setHours(date.getHours() + 9);
     return date.toISOString().slice(0, 10);
   };
+
+  useEffect(() => {
+    api.Schedules().then((data) => {
+      const sorted = [...data].sort((a, b) => {
+        const dateA = getDateKey(a.begin_at);
+        const dateB = getDateKey(b.begin_at);
+        if (dateA !== dateB) return dateB.localeCompare(dateA);
+        return new Date(a.begin_at) - new Date(b.begin_at);
+      });
+      setMatches(sorted);
+    });
+  }, []);
 
   // 날짜 표시용 포맷
   const formatDate = (begin_at) => {
