@@ -4,24 +4,10 @@ import "../../styles/ScheduleList.scss";
 function ScheduleList({ match, showDate }) {
   const { begin_at, opponents, results } = match;
 
-  const teamA = opponents?.[0]?.opponent;
-  const teamB = opponents?.[1]?.opponent;
-
-  // results에서 세트스코어 추출
-  const scoreA = results?.find(r => r.team_id === teamA?.id)?.score ?? null;
-  const scoreB = results?.find(r => r.team_id === teamB?.id)?.score ?? null;
-  const hasScore = scoreA !== null && scoreB !== null;
-
-  const dateStr = begin_at
-    ? new Date(begin_at).toLocaleDateString("ko-KR", {
-        year: "numeric", month: "long", day: "numeric",
-      })
-    : "";
-
   return (
     <div>
       {showDate && (
-        <div className="date Pretendard-Regular font-14">{showDate ? dateStr : ""}</div>
+        <div className="date Pretendard-Regular font-14">{dateStr}</div>
       )}
       <div className="info-schedule">
         <div className="info-match Poppins-Medium font-14">

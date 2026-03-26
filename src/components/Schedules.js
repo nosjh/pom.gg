@@ -10,28 +10,36 @@ function Schedules() {
     api.Schedules().then((data) => setMatches(data));
   }, []);
 
+  // UTC 날짜 문자열 추출 함수 (YYYY-MM-DD)
+  const getDateKey = (begin_at) => begin_at ? begin_at.slice(0, 10) : "";
+
+  // 날짜 표시용 포맷 함수
+  const formatDate = (begin_at) => {
+    if (!begin_at) return "";
+    const [year, month, day] = begin_at.slice(0, 10).split("-");
+    return `${year}년 ${parseInt(month)}월 ${parseInt(day)}일`;
+  };
+
   return (
     <div className="schedul-container">
       <div>
         {matches.map((match, idx) => {
-  const dateStr = match.begin_at
-    ? new Date(match.begin_at).toLocaleDateString("ko-KR", {
-        year: "numeric", month: "long", day: "numeric",
-      })
-    : "";
-  const prevDateStr = idx > 0 && matches[idx - 1].begin_at
-    ? new Date(matches[idx - 1].begin_at).toLocaleDateString("ko-KR", {
-        year: "numeric", month: "long", day: "numeric",
-      })
-    : "";
-  const showDate = idx === 0 || dateStr !== prevDateStr;
+          const dateKey = getDateKey(match.begin_at);
+          const prevDateKey = idx > 0 ? getDateKey(matches[idx - 1].begin_at) : "";
+          const showDate = idx === 0 || dateKey !== prevDateKey;
 
-  return (
-    <ScheduleList key={match.id} match={match} showDate={showDate} />
-  );
-})}
+          return (
+            <ScheduleList
+              key={match.id}
+              match={match}
+              showDate={showDate}
+              dateStr={formatDate(match.begin_at)}
+            />
+          );
+        })}
       </div>
     </div>
   );
 }
+
 export default Schedules;
