@@ -10,11 +10,21 @@ function Schedules() {
     api.Schedules().then((data) => setMatches(data));
   }, []);
 
-  const formatDate = (begin_at) => {
-    if (!begin_at) return "";
-    const [year, month, day] = begin_at.slice(0, 10).split("-");
-    return `${year}년 ${parseInt(month)}월 ${parseInt(day)}일`;
-  };
+  const getDateKey = (begin_at) => {
+  if (!begin_at) return "";
+  // UTC → 한국 시간(+9)으로 변환해서 날짜 추출
+  const date = new Date(begin_at);
+  date.setHours(date.getHours() + 9);
+  return date.toISOString().slice(0, 10);
+};
+
+const formatDate = (begin_at) => {
+  if (!begin_at) return "";
+  const date = new Date(begin_at);
+  date.setHours(date.getHours() + 9);
+  const [year, month, day] = date.toISOString().slice(0, 10).split("-");
+  return `${year}년 ${parseInt(month)}월 ${parseInt(day)}일`;
+};
 
   return (
     <div className="schedul-container">
