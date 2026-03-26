@@ -15,7 +15,9 @@
   width: 30px;
   height: 30px;
   object-fit: contain;
-  object-position: center center;
+  display: flex;
+  align-items: center;      
+  justify-content: center;
 }
 
 .info-team div:nth-child(1) {

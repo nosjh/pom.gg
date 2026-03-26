@@ -18,10 +18,12 @@
 }
 
 .info-player-detail > .player > img {
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
   object-fit: cover;
-  object-position: center center;
+  display: flex;
+  align-items: center;      
+  justify-content: center;
 }
 
 .position {
