@@ -45,11 +45,9 @@ function Main() {
       <Header />
       <div className="container">
         <div className="select-league-wrap">
-          <select className="select-league Poppins-SemiBold font-32">
-            <optgroup>
-              <option>LCK</option>
-            </optgroup>
-          </select>
+          <div className="select-league Poppins-SemiBold font-32">
+            LCK
+          </div>
           <div className="select-league-icon">
             <BsCaretDownFill />
           </div>
