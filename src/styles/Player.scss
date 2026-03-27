@@ -84,17 +84,18 @@
 }
 
 .nation {
-  // margin-left: 60px;
+  margin-left: 36px;
   text-align: center;
   width: 140px;
   @include mobile {
     width: 98px;
-    // margin-left: 16px;
+    margin-left: 0;
   }
 }
 
 .birth {
   width: 80px;
+  margin-left: 24px;
   text-align: center;
   @include mobile {
     display: none;
