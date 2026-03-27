@@ -18,7 +18,7 @@ function RosterT1Container({ teamId }) {
         <div>PLAYER</div>
         <div>POSITION</div>
         <div>NATION</div>
-        <div>BIRTH</div>
+        {/* <div>BIRTH</div> */}
       </div>
       <div>
         {rostersT1.map((rosterT1) => {
