@@ -17,7 +17,7 @@ function RosterT1({ player }) {
         <div className="full-name">{fullName}</div>
       </div>
       <div className="position">
-        <img src={`${process.env.PUBLIC_URL}/img/position/${role}.svg`} alt={role} />
+        <img src={`/img/position/${role}.svg`} alt={role} />
       </div>
       <div className="nation">{nationality}</div>
       {/* <div className="birth">{birth}</div> */}
