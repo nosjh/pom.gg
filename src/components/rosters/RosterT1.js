@@ -2,11 +2,10 @@ import React from "react";
 import "../../styles/Player.scss";
 
 function RosterT1({ player }) {
-  const { name, role, image_url, nationality, birthday } = player;
+  const { name, first_name, last_name, role, image_url, birthday, nationality } = player;
 
-  const birth = birthday
-    ? birthday.slice(0, 10)
-    : "NO DATA";
+  const fullName = first_name && last_name ? `${first_name} ${last_name}` : "";
+  const birth = birthday ? birthday.slice(0, 10) : "NO DATA";
 
   return (
     <div className="info-player-detail Poppins-Regular font-12">
@@ -14,7 +13,8 @@ function RosterT1({ player }) {
         <img src={image_url} alt={name} />
       </div>
       <div className="player-name">
-        <div>{name}</div>
+        <div className="match-name">{name}</div>
+        <div className="full-name">{fullName}</div>
       </div>
       <div className="position">
         <img src={`img/position/${role}.svg`} alt={role} />
