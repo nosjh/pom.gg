@@ -1,6 +1,6 @@
 import axiosInstance from "./axiosInstance";
 
-const SERIE_ID = 10419;       // 시즌 전체 
+const SERIE_ID = 10419;        // 시즌 전체 
 const TOURNAMENT_ID = 20577;  // 정규시즌 
 
 
