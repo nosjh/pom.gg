@@ -1,7 +1,7 @@
 import axiosInstance from "./axiosInstance";
 
 // const SERIE_ID = 9164;        // 시즌 전체 
-const TOURNAMENT_ID = 20607;  // 정규시즌 
+const TOURNAMENT_ID = 16306;  // 정규시즌 
 
 
 export const Standings = async () => {
