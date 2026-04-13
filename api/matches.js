@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   const params = new URLSearchParams(req.query);
   const response = await fetch(
-    `https://api.pandascore.co/lol/matches?${params}&filter[status]=finished`,
+    `https://api.pandascore.co/lol/matches?${params}&filter[status]=running`,
     { headers: { Authorization: `Bearer ${process.env.REACT_APP_API_KEY}` } }
   );
   const data = await response.json();
