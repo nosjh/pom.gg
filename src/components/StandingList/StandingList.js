@@ -11,8 +11,8 @@ function StandingList({ standing }) {
       <div>{rank}</div>                          
       <div><img src={team.image_url} alt={team.name} /></div>  
       <div>{team.name}</div>
-      <div>{game_wins}W {game_losses}L</div>  {/* SET W-L */}
-      <div>{wins}W {losses}L</div>            {/* W-L */}
+      <div>{wins}W {losses}L</div>  {/* SET W-L */}
+      <div>{game_wins}W {game_losses}L</div>            {/* W-L */}
       <div>{gameDiffStr}</div>                {/* 세트 득실차 */}
     </div>
   );
